@@ -1,84 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-		<link rel="icon" href="/favicon.ico" />
-		<title><%= title %></title>
-		<meta
-		name="description"
-		content="<%= (!!locals.description) ? description : site.description %>"
-		/>
-		<meta name="author" content="<%= site.author %>" />
-		<meta property="og:title" content="<%= title %>" />
-		<meta
-		property="og:description"
-		content="<%= (!!locals.description) ? description : site.description %>"
-		/>
-		<meta property="og:locale" content="<%= site.locale %>" />
-		<meta property="og:site_name" content="<%= site.site_name %>" />
-		<% if (locals.tags == "posts") { %>
-		<meta property="og:type" content="article" />
-		<meta property="article:published_time" content="<%= date.toISOString() %>" />
-		<script type="application/ld+json">
-		{
-			"description": "<%= (!!locals.description) ? description : site.description %>",
-			"author": { "@type": "Person", "name": "<%= site.author %>" },
-			"@type": "BlogPosting",
-			"url": "<%= `${site.url}${page.url}` %>",
-			"publisher": {
-			"@type": "Organization",
-			"logo": {
-				"@type": "ImageObject",
-				"url": "<%= `${site.url}/assets/images/logo.png` %>"
-			},
-			"name": "<%= site.author %>"
-			},
-			"headline": "<%= title %>",
-			"datePublished": "<%= date.toISOString() %>",
-			"mainEntityOfPage": {
-			"@type": "WebPage",
-			"@id": "<%= `${site.url}${page.url}` %>"
-			},
-			"@context": "http://schema.org"
-		}
-		</script>
-		<% } %> <%- include('webpack.ejs') %>
-	</head>
-	<body>
-			<div class="sentinal absolute top-0 left-0 w-full h-16 -z1"></div>
-			<header class="main-header sticky top-0 w-full h-16 z-50 bg-white">
-				<div class="max-w-5xl mx-auto ">
-					logo
-				</div>
-			</header>
-			<div class="max-w-5xl mx-auto">
-				<%- content %>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Non pariatur dolor laudantium ipsum aspernatur aliquid necessitatibus accusantium esse rem. Doloribus quas deserunt amet! Harum magnam et fuga? Ullam, assumenda nobis?</p>
-			</div>
-			<%- include('webpack2.ejs') %>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" href="/favicon.ico" />
+    <title><%= title %></title>
+    <meta
+      name="description"
+      content="<%= (!!locals.description) ? description : site.description %>"
+    />
+    <meta name="author" content="<%= site.author %>" />
+    <meta property="og:title" content="<%= title %>" />
+    <meta
+      property="og:description"
+      content="<%= (!!locals.description) ? description : site.description %>"
+    />
+    <meta property="og:locale" content="<%= site.locale %>" />
+    <meta property="og:site_name" content="<%= site.site_name %>" />
+    <% if (locals.tags == "posts") { %>
+    <meta property="og:type" content="article" />
+    <meta property="article:published_time" content="<%= date.toISOString() %>" />
+    <script type="application/ld+json">
+      {
+        "description": "<%= (!!locals.description) ? description : site.description %>",
+        "author": { "@type": "Person", "name": "<%= site.author %>" },
+        "@type": "BlogPosting",
+        "url": "<%= `${site.url}${page.url}` %>",
+        "publisher": {
+          "@type": "Organization",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "<%= `${site.url}/assets/images/logo.png` %>"
+          },
+          "name": "<%= site.author %>"
+        },
+        "headline": "<%= title %>",
+        "datePublished": "<%= date.toISOString() %>",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "<%= `${site.url}${page.url}` %>"
+        },
+        "@context": "http://schema.org"
+      }
+    </script>
+    <% } %> <%- include('webpack.ejs') %>
+  </head>
+  <body>
+    <%- content %>
+  </body>
 </html>
