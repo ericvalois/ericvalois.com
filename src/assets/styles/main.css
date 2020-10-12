@@ -1,5 +1,13 @@
 @tailwind base;
 
+html{
+	font-size: 20px;
+}
+
+p{
+	margin-bottom: 1.5rem;
+}
+
 a {
   @apply text-blue-700 underline font-bold;
 }
