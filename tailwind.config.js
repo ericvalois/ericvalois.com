@@ -1,8 +1,11 @@
 module.exports = {
   purge: ['./src/**/*.ejs'],
+  darkMode: 'media',
   theme: {
     extend: {},
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
