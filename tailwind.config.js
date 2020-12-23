@@ -1,12 +1,12 @@
 module.exports = {
-  future: {
-    // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
-  },
-  purge: [],
-  theme: {
-    extend: {},
-  },
-  variants: {},
-  plugins: [],
-}
+	purge: ['./src/**/*.ejs'],
+	darkMode: 'media',
+	theme: {
+	  extend: {},
+	},
+	variants: {},
+	plugins: [
+	  require('@tailwindcss/typography'),
+	],
+};
+  
