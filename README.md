@@ -1,117 +1,117 @@
-# My personnal website build on 11ty
+# Minimal 11ty Starter
 
 
+![Image showing the demo website](https://user-images.githubusercontent.com/3286735/100862193-26c1bd00-3493-11eb-8120-61a0d822588b.png)
 
-### Features
 
-Production-ready in mind:
+A *very* minimal [eleventy](https://11ty.io/) starter using [Tailwind CSS](https://tailwindcss.com/) for styling.
 
-- 🔥 [11ty](https://www.11ty.dev) for Static Site Generator
-- 🎨 Integrate with [Tailwind CSS](https://tailwindcss.com) (with [PurgeCSS](https://purgecss.com), remove unused CSS)
-- 💅 [PostCSS](https://postcss.org) for processing [Tailwind CSS](https://tailwindcss.com)
-- ⚡️ Lazy load images with [lazysizes](https://github.com/aFarkas/lazysizes)
-- ✨ Compress image with [Imagemin](https://github.com/imagemin/imagemin)
-- 🎈 Syntax Highlighting with [Prism.js](https://prismjs.com)
-- ☕ Minify HTML & CSS with [HTMLMinifier](https://www.npmjs.com/package/html-minifier) and [cssnano](https://cssnano.co)
-- ✏️ Linter with [ESLint](https://eslint.org)
-- 🛠 Code Formatter with [Prettier](https://prettier.io)
-- 💨 Live reload
-- 📦 Module Bundler with [Webpack](https://webpack.js.org)
-- 🦊 Templating with [EJS](https://ejs.co)
-- 🤖 SEO metadata and [Open Graph](https://ogp.me/) tags
-- ⚙️ [JSON-LD](https://developers.google.com/search/docs/guides/intro-structured-data) for richer indexing
-- 🗺 Sitemap.xml
-- ⚠️ 404 page
-- 📖 Pagination
-- ✅ Cache busting
-- 💯 Maximize lighthouse score
+It features a smart navigation component that sets active states automatically.
 
-### Philosophy
+For beginners and/or when you need a simple static site and don't want to duplicate your navigation header and set active states for the nth time.
 
-- Minimal code (HTML, CSS & JS). Add what you need
-- SEO-friendly
-- 🚀 Production-ready
+## Features
+🦴 As minimal as possible  
+⚡️ Active states in the navigation are automatically set based on the current url.  
+💨 Add a couple of lines to any page and it will appear in the navigation. (Check how to below)  
+🗓 A very simple blog structure because why not  
+🍪 Example for including json data on contact page  
+💜 Tailwind CSS
 
-### Requirements
 
-- Node.js and npm
+### [Live Demo](https://clever-newton-cbb08a.netlify.app)  
 
-### Getting started
+---
 
-Run the following command on your local environment:
+## Getting Started
+
+
+#### 1. Clone this repo
 
 ```
-git clone --depth=1 https://github.com/ixartz/Eleventy-Starter-Boilerplate.git my-project-name
-cd my-project-name
+git clone git@github.com:tomreinert/minimal-11ty-tailwind-starter.git mysite
+```
+#### 2. Change into the working directory
+
+```
+cd mysite
+```
+
+#### 3. Install dependencies
+
+```
 npm install
 ```
 
-Then, you can run locally in development mode with live reload:
-
-```
-npm run dev
-```
-
-Open http://localhost:8080 with your favorite browser to see your blog.
-
-### Project structure
-
-```
-.
-├── public             # Static files
-│   └── assets
-│       └── images     # Images not needed by Webpack
-└── src
-    ├── _data          # Eleventy data folder
-    ├── _includes
-    │   └── layouts    # HTML layout files
-    ├── assets         # Assets folder that needs to be processed by Webpack
-    │   ├── images
-    │   │   └── posts  # Images used in your blog posts (will be compressed by Webpack)
-    │   └── styles     # Your blog CSS files
-    └── posts          # Your blog posts
-```
-
-### Customization
-
-You can easily configure Eleventy Starter Boilerplate. Please change the following file:
-
-- `public/assets/images/logo.png`: your blog logo
-- `public/apple-touch-icon.png`, `public/favicon.ico`, `public/favicon-16x16.png` and `public/favicon-32x32.png`: your blog favicon, you can generate from https://favicon.io/favicon-converter/
-- `src/_data/site.json`: your blog configuration
-- `src/_includes/layouts`: your blog HTML layout
-- `src/assets/styles/main.css`: your blog CSS file using Tailwind CSS
-
-### Deploy to production
-
-You can see the results locally in production mode with:
+#### 4. Work locally
+Watches for changes and serves locally on http://localhost:8080
 
 ```
 npm run serve
 ```
 
-The generated HTML and CSS files are minified. It will also removed unused CSS from [Tailwind CSS](https://tailwindcss.com).
-
-You can create an optimized production build with:
+#### 5. Create a production build
 
 ```
 npm run build
 ```
 
-Now, your blog is ready to be deployed. All generated files are located at `_site` folder, which you can deploy with any hosting service.
 
-### Deploy to Netlify
 
-Clone this repository on own GitHub account and deploy to Netlify:
+## How To: Navigation
 
-[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ixartz/Eleventy-Starter-Boilerplate)
+The top navigation is the only *feature* in this starter and lives in `/src/_includes/components/navigation.njk`.  
 
-### Contributions
+It looks for the eleventyNavigation object in pages and adds them to the navigation bar. It also checks whether the site's url is in the currently opened url and highlights the navigation item accordingly. This even works for subpages. So if you're on `/blog/post/` the **Blog** nav item will still be active.
 
-Everyone is welcome to contribute to this project. Feel free to open an issue if you have question or found a bug.
 
-### License
+### Adding links to the navigation
+Add the `eleventyNavigation` object to any page and it will appear in the navigation. Optionally set the order of your items.
+Check the [11ty docs](https://www.11ty.dev/docs/plugins/navigation/) for more information about the navigation plugin.
 
-Licensed under the MIT License, Copyright © 2020
+```
+---
+eleventyNavigation:
+  key: Your Page Name
+  order: 1
+---
+```
 
-See [LICENSE](LICENSE) for more information.
+
+### Changing the navigation item styles
+The script in `/_includes/components/navigation.njk` checks if a navigation item is active and styles it accordingly.
+Let's dissect the code:
+
+```
+<a
+ href="{{ entry.url }}"
+
+ // Base styles for navigation items
+ class="py-1 px-2 rounded mr-4 inline-block
+
+ // Styles for the active navigation item
+ {{'bg-white text-black' if entry.url in page.url
+
+ // Styles for default navigation item
+ else 'text-gray-400 hover:text-gray-100'}}">
+ {{ entry.title }}
+</a>
+```
+
+
+
+## How To: Blog
+
+Add a page in `_src/blog/posts` and it will appear in the post list.
+
+
+
+## Credits
+
+[Bryan L. Robinson](https://bryanlrobinson.com/blog/using-nunjucks-if-expressions-to-create-an-active-navigation-state-in-11ty/) for explaining how to create the active navigation state
+
+ https://statickit.com/guides/eleventy-tailwind - I set up the project according to this guide
+
+ https://11ty.io/
+
+ https://tailwindcss.com/

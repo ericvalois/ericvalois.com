@@ -1,48 +1,31 @@
-const htmlmin = require('html-minifier');
-const dateFns = require('date-fns');
-const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
-const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
-module.exports = function (eleventyConfig) {
-  eleventyConfig.addPlugin(syntaxHighlight);
 
-  eleventyConfig.addPlugin(lazyImagesPlugin, {
-    transformImgPath: (imgPath) => {
-      if (imgPath.startsWith('http://') || imgPath.startsWith('https://')) {
-        // Handle remote file
-        return imgPath;
-      } else {
-        return `./src/${imgPath}`;
-      }
-    },
-  });
+module.exports = function(eleventyConfig) {
 
-  eleventyConfig.setEjsOptions({
-    rmWhitespace: true,
-    context: {
-      dateFns,
-    },
-  });
+  eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  eleventyConfig.setBrowserSyncConfig({
-    files: './_site/assets/styles/main.css',
-  });
+  eleventyConfig.addPassthroughCopy('images')
+  eleventyConfig.addPassthroughCopy('admin')
 
-  eleventyConfig.addTransform('htmlmin', (content, outputPath) => {
-    if (outputPath.endsWith('.html')) {
-      const minified = htmlmin.minify(content, {
-        useShortDoctype: true,
-        removeComments: true,
-        collapseWhitespace: true,
-        minifyJS: true,
-      });
-      return minified;
-    }
+  const {
+    DateTime
+  } = require("luxon");
 
-    return content;
+  // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
+    eleventyConfig.addFilter('htmlDateString', (dateObj) => {
+      return DateTime.fromJSDate(dateObj, {
+        zone: 'utc'
+      }).toFormat('yy-MM-dd');
+    });
+
+    eleventyConfig.addFilter("readableDate", dateObj => {
+    return DateTime.fromJSDate(dateObj, {
+      zone: 'utc'
+    }).toFormat("dd-MM-yy");
   });
 
   return {
-    dir: { input: 'src', output: '_site', data: '_data' },
+    dir: { input: 'src', output: '_site' }
   };
 };
