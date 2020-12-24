@@ -2,7 +2,7 @@ module.exports = {
 	purge: ['./src/**/*.ejs'],
 	darkMode: 'media',
 	theme: {
-	  extend: {},
+	 	extend: {},
 	},
 	variants: {},
 	plugins: [

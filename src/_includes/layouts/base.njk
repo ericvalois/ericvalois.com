@@ -4,12 +4,28 @@
     <title>{{ title }}</title>
      <link rel="stylesheet" type="text/css" href="/assets/main.css" />
   </head>
-  <body>
-    {% include "../components/navigation.njk" %}
-    <main class="p-12">
-      <h1 class="text-3xl mb-8">{{title}}</h1>
+  <body class="font-sans dark:bg-dark dark:text-white">
+
+	
+	<label for="designMode" class="p-4 absolute top-0 right-0">
+		<input type="checkbox" name="themeSwitcher" id="themeSwitcher" class="">
+		<span class="">Darkmode</span>
+	</label>
+
+    {# {% include "../components/navigation.njk" %} #}
+
+    <main class="px-4 max-w-3xl mx-auto">
+      {# <h1 class="text-3xl mb-8">{{title}}</h1> #}
       {{ content | safe }}
     </main>
-    <script src="/assets/main.js"></script>
+
+    <script defer src="/assets/main.js"></script>
+
+	{% if env.environment == "production" %}
+		<!-- Cloudflare Web Analytics -->
+		<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "58bc3103b95344048fcd22991de1e682"}'></script>
+		<!-- End Cloudflare Web Analytics -->
+	{% endif %}
+
   </body>
 </html>
