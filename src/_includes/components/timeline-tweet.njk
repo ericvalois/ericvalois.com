@@ -1,0 +1,23 @@
+<div class="flex mb-12 md:mb-12 timeline-item">
+	<div class="flex flex-col items-center">
+		<div class="flex justify-center p-3 rounded-full align-center border-4 border-gray-50 dark:border-gray-1000 text-blue-800 dark:text-blue-200 bg-blue-500 bg-opacity-20">
+			<i class="icon" data-icon="twitter"></i>
+		</div>
+		<div class="flex-1 w-px -mb-12 bg-gray-200 md:-mb-12 dark:bg-gray-800 timeline-stroke"></div>
+	</div>
+	<div class="flex flex-col flex-1 ml-4 space-y-4">
+		<div class="flex flex-col pt-1 contents-center"><span class="font-medium text-primary">Twitter conversation</span><span class="text-sm text-tertiary"><time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time></span></div>
+		<div class="flex flex-col space-y-4 timeline-full-width">
+			<div class="-mt-2 prose timeline-inset prose-md">
+			
+				<blockquote>{{post.data.tweetText}}</blockquote>
+				<p>{{post.data.tweetComment}}</p>
+			</div>
+			<div class="flex flex-wrap space-y-3 md:space-y-0 md:space-x-3 timeline-inset">
+				<a href="{{post.data.tweetUrl}}" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto">
+					<button class="w-full md:w-auto {{class.button}} {{class.buttonSmall}}"><span>View tweet</span></button>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
