@@ -1,9 +1,6 @@
 ---
 title: Home
 layout: layouts/base.njk
-eleventyNavigation:
-  key: Home
-  order: 0
 ---
 
 
@@ -27,12 +24,15 @@ eleventyNavigation:
 {# {% include "./_includes/components/fake.njk" %} #}
 
 {% set postslist = collections.posts %}
-<ul>
+<ul class="max-w-xl mx-auto mb-32">
   {% for post in postslist %}
     <li>
 		{% if post.data.tags.includes("tweet") %}
 			{% include "./_includes/components/timeline-tweet.njk" %}
-		{% elif 2 == 3 %}
+		{% elif post.data.tags.includes("picture") %}
+			{% include "./_includes/components/timeline-picture.njk" %}
+		{% elif post.data.tags.includes("posts") %}
+			{% include "./_includes/components/timeline-post.njk" %}
 		{% endif %}
 		
     </li>

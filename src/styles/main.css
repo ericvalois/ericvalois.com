@@ -21,10 +21,9 @@
 :root{
 	--tw-bg-opacity: 1;
 	--default-dark: rgba(5,5,5,var(--tw-bg-opacity));
-}
+} 
 
 @tailwind base;
-
 
 html{
 	font-size: 18px;
@@ -47,14 +46,15 @@ body{
 
 
 .link,
-p a{
+p a,
+.dark\:prose-dark p a{
 	@apply filter-hover transition-all font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400;
 }
 
 
-@media (prefers-color-scheme: dark){
+/* @media (prefers-color-scheme: dark){
 	.dark\:bg-dark{background-color: var(--default-dark);}
-}
+} */
 
 .default-bg{
 	background-size: 200% auto;
@@ -80,6 +80,7 @@ p a{
 		background-position: 0% 50%;
 	}
 }
+
 
 
 

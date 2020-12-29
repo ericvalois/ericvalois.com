@@ -1,13 +1,11 @@
 ---
-title: About me
-layout: layouts/base.njk
-permalink: /about/
-eleventyNavigation:
-  key: About
-  order: 1
+layout: layouts/post.njk
+title: kate and I having fun
+date: 2020-03-02
+tags:
+  - picture
+  - posts
 ---
-<div class="prose dark:prose-dark py-10 lg:py-16 max-w-xl mx-auto">
-  <h1>{{title}}</h1>
   <p>
     For years parents have espoused the health benefits of eating garlic bread with cheese to their
     children, with the food earning such an iconic status in our culture that kids will often dress
@@ -17,5 +15,3 @@ eleventyNavigation:
     But a recent study shows that the celebrated appetizer may be linked to a series of rabies cases
     springing up around the country.
   </p>
-
-</div>
