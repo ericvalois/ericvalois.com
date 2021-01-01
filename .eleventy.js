@@ -1,12 +1,47 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const Image = require("@11ty/eleventy-img");
 
 
 module.exports = function(eleventyConfig) {
 
+	// works also with addLiquidShortcode or addJavaScriptFunction
+	eleventyConfig.addNunjucksAsyncShortcode("picture", async function(src, alt, width = "285") {
+		
+		if(src === ""){
+			return '';
+		}
+
+		if(alt === undefined) {
+		  // You bet we throw an error on missing alt (alt="" works okay)
+		  throw new Error(`Missing \`alt\` on responsiveimage from: ${src}`);
+		}
+		
+		let retinaWidth = width * 2;
+
+		let metadata = await Image(src, {
+		  widths: [width, retinaWidth, 1500],
+		  formats: ['jpg'],
+		  outputDir: "./_site/images/",
+		  urlPath: "/images/"
+		});
+		console.log(metadata);
+		let smallJPG = metadata.jpg[0];
+		let retinaJPG = metadata.jpg[1];
+		let fullJPG = metadata.jpg[2];
+
+		return `
+			<a href="${fullJPG.url}" class="flex-auto">
+				<img src="${smallJPG.url}" srcset="${smallJPG.url} 1x, ${retinaJPG.url} 2x" class="img-zoomable rounded"  alt="${alt}" width="${smallJPG.width}" height="${smallJPG.height}">
+			</a>
+		`;
+	  });
+	  
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
 
-  eleventyConfig.addPassthroughCopy('src/images')
-  eleventyConfig.addPassthroughCopy('admin')
+  eleventyConfig.addPassthroughCopy('src/images');
+  eleventyConfig.addPassthroughCopy('admin');
+
+   
 
   const {
     DateTime
@@ -24,6 +59,8 @@ module.exports = function(eleventyConfig) {
       zone: 'utc'
     }).toFormat("MMMM d, yyyy");
   });
+
+  
 
   return {
     dir: { input: 'src', output: '_site' }

@@ -3,10 +3,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 
 module.exports = {
-  entry: './src/scripts/main.js',
+  entry: {
+	main: ['./src/scripts/main.js'],
+  },
   output: {
     path: path.resolve(__dirname, '_site/assets'),
-    filename: 'main.js'
+    filename: '[name].js'
   },
   plugins: [new MiniCssExtractPlugin()],
   module: {

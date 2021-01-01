@@ -2,8 +2,6 @@
 title: Home
 layout: layouts/base.njk
 ---
-
-
 <section class="py-6">
 	<div class="max-w-xl mx-auto text-center py-10">
 		<h1 class="font-extrabold text-3xl mb-2">Hey, I'm Eric</h1>
@@ -20,12 +18,13 @@ layout: layouts/base.njk
 		</div> 
 	</div>
 </section>
+{# {% responsiveimage "./src/images/eric-and-kate.jpg", "photo of my cat", "(min-width: 30em) 50vw, 100vw" %} #}
 
 {# {% include "./_includes/components/fake.njk" %} #}
 
-{% set postslist = collections.posts %}
+{# {% set postslist = collections.posts %}
 <ul class="max-w-xl mx-auto mb-32">
-  {% for post in postslist %}
+  {% asyncAll post in postslist %}
     <li>
 		{% if post.data.tags.includes("tweet") %}
 			{% include "./_includes/components/timeline-tweet.njk" %}
@@ -36,8 +35,22 @@ layout: layouts/base.njk
 		{% endif %}
 		
     </li>
-  {% endfor %}
-</ul>
+{% endall %}
+</ul> #}
 
+<ul class="max-w-xl mx-auto mb-32">
+  {% for item in timeline %}
+    <li>
+		{% if item.type == 'tweet' %}
+			{% include "./_includes/components/timeline-tweet.njk" %}
+		{% elif item.type == 'picture' %}
+			{% picture "", "", "" %}
+			{% include "./_includes/components/timeline-picture.njk" %}
+		{% elif item.type == 'post' %}
+			{% include "./_includes/components/timeline-post.njk" %}
+		{% endif %}
+    </li>
+{% endfor %}
+</ul>
 
 

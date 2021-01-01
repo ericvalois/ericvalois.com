@@ -1,9 +1,12 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>{{ title }}</title>
-     <link rel="stylesheet" type="text/css" href="/assets/main.css" />
-  </head>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ title }}</title>
+	<link rel="stylesheet" type="text/css" href="/assets/main.css" />
+</head>
   <body class="font-sans text-black dark:text-white bg-white dark:bg-black">
 
 	
@@ -11,7 +14,8 @@
     {% include "../components/navigation.njk" %}
 
     <main class="px-4 max-w-3xl mx-auto">
-      {# <h1 class="text-3xl mb-8">{{title}}</h1> #}
+
+   
       {{ content | safe }}
     </main>
 
