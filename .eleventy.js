@@ -4,6 +4,16 @@ const Image = require("@11ty/eleventy-img");
 
 module.exports = function(eleventyConfig) {
 
+	eleventyConfig.addFilter("latestTimeline", function(posts) {
+		let filledArray = new Array();
+
+		for(let i=0; i<6;i++){
+			filledArray[i] = posts[i];
+		}
+		console.log(filledArray);
+		return filledArray;
+	});
+
 	// works also with addLiquidShortcode or addJavaScriptFunction
 	eleventyConfig.addNunjucksAsyncShortcode("picture", async function(src, alt, width = "285") {
 		
@@ -19,12 +29,12 @@ module.exports = function(eleventyConfig) {
 		let retinaWidth = width * 2;
 
 		let metadata = await Image(src, {
-		  widths: [width, retinaWidth, 1500],
+		  widths: [width, retinaWidth, null],
 		  formats: ['jpg'],
 		  outputDir: "./_site/images/",
 		  urlPath: "/images/"
 		});
-		console.log(metadata);
+		//console.log(metadata);
 		let smallJPG = metadata.jpg[0];
 		let retinaJPG = metadata.jpg[1];
 		let fullJPG = metadata.jpg[2];

@@ -15,7 +15,6 @@
 		</div>
 		
 		<div class="flex flex-col space-y-4 timeline-full-width">
-			{% set grid = item.pictures.length %}
 			<div class="flex flex-wrap gap-2">
 			 	{% for photo in item.pictures %}
 					{% picture photo.src, photo.alt, photo.width %}

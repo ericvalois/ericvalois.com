@@ -18,39 +18,20 @@ layout: layouts/base.njk
 		</div> 
 	</div>
 </section>
-{# {% responsiveimage "./src/images/eric-and-kate.jpg", "photo of my cat", "(min-width: 30em) 50vw, 100vw" %} #}
-
-{# {% include "./_includes/components/fake.njk" %} #}
-
-{# {% set postslist = collections.posts %}
-<ul class="max-w-xl mx-auto mb-32">
-  {% asyncAll post in postslist %}
-    <li>
-		{% if post.data.tags.includes("tweet") %}
-			{% include "./_includes/components/timeline-tweet.njk" %}
-		{% elif post.data.tags.includes("picture") %}
-			{% include "./_includes/components/timeline-picture.njk" %}
-		{% elif post.data.tags.includes("posts") %}
-			{% include "./_includes/components/timeline-post.njk" %}
-		{% endif %}
-		
-    </li>
-{% endall %}
-</ul> #}
 
 <ul class="max-w-xl mx-auto mb-32">
-  {% for item in timeline %}
-    <li>
-		{% if item.type == 'tweet' %}
-			{% include "./_includes/components/timeline-tweet.njk" %}
-		{% elif item.type == 'picture' %}
-			{% picture "", "", "" %}
-			{% include "./_includes/components/timeline-picture.njk" %}
-		{% elif item.type == 'post' %}
-			{% include "./_includes/components/timeline-post.njk" %}
-		{% endif %}
-    </li>
-{% endfor %}
+	{% asyncEach item in timeline | latestTimeline %}
+		<li>
+			{% if item.type == 'tweet' %}
+				{% include "./_includes/components/timeline-tweet.njk" %}
+			{% elif item.type == 'picture' %}
+				{% picture "", "", "" %}
+				{% include "./_includes/components/timeline-picture.njk" %}
+			{% elif item.type == 'post' %}
+				{% include "./_includes/components/timeline-post.njk" %}
+			{% endif %}
+		</li>
+	{% endeach %}
 </ul>
 
 
