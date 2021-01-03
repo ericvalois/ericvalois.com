@@ -10,7 +10,6 @@ module.exports = function(eleventyConfig) {
 		for(let i=0; i<6;i++){
 			filledArray[i] = posts[i];
 		}
-		console.log(filledArray);
 		return filledArray;
 	});
 
