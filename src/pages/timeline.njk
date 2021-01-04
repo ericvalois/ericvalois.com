@@ -1,0 +1,32 @@
+---
+title: Timeline
+layout: layouts/base.njk
+permalink: /timeline/
+eleventyNavigation:
+  key: Timeline
+  order: 3
+---
+{#{% set postslist = collections.posts %}#}
+{#{% include "components/postslist.njk" %}#}
+<div class="py-10 lg:py-16 max-w-xl mx-auto">
+	<header class="prose dark:prose-dark mb-8">
+		<h1>{{title}}</h1>
+	</header>
+  
+
+  <ul class="max-w-xl mx-auto mb-32">
+	{% asyncEach item in timeline %}
+		<li>
+			{% if item.type == 'tweet' %}
+				{% include "../_includes/components/timeline-tweet.njk" %}
+			{% elif item.type == 'picture' %}
+				{% picture "", "", "" %}
+				{% include "../_includes/components/timeline-picture.njk" %}
+			{% elif item.type == 'post' %}
+				{% include "../_includes/components/timeline-post.njk" %}
+			{% endif %}
+		</li>
+	{% endeach %}
+</ul>
+
+</div>

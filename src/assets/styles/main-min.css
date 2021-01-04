@@ -1,1 +1,0 @@
-@tailwind base;html{font-size:20px;font-family:'IBM Plex Sans', sans-serif}a{background:-webkit-linear-gradient(180deg, #667eea, #9f7aea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:700}a:hover{text-decoration:none}p{margin-bottom:1.5rem}@tailwind components;@tailwind utilities

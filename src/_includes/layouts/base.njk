@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ title }}</title>
+	<link rel="stylesheet" type="text/css" href="/assets/main.css" />
+</head>
+  <body class="font-sans text-black dark:text-white bg-white dark:bg-black">
+
+    {% include "../components/navigation.njk" %}
+
+    <main class="px-4 max-w-3xl mx-auto">
+      {{ content | safe }}
+    </main>
+
+	<footer class="pb-6 text-sm text-center mt-12">
+
+		{% include "../components/follow.njk" %}
+
+		<span class="pagespeed"></span>
+
+	</footer>
+
+    <script defer src="/assets/main.js"></script>
+
+	{% if mywebsite.environment == "production" %}
+		<!-- Cloudflare Web Analytics -->
+		<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "58bc3103b95344048fcd22991de1e682"}'></script>
+		<!-- End Cloudflare Web Analytics -->
+	{% endif %}
+
+  </body>
+</html>

@@ -1,0 +1,27 @@
+<nav class="flex items-center justify-between flex-wrap px-5 py-3 overflow-x-auto ">
+  	{% set navPages = collections.all | eleventyNavigation %}
+	<ul class="flex items-center">
+		<li class="">
+			<a 
+				href="/" 
+				class="filter-hover uppercase text-sm py-1 px-2 rounded mr-4 inline-block
+					{{'bg-black text-white dark:bg-white dark:text-black' if '/' == page.url
+					else 'text-gray-600 dark:text-gray-300'}}"
+			>
+				Home
+			</a>
+		</li>
+		{% for entry in navPages %}
+			<li class="">
+				<a 
+					href="{{ entry.url }}" 
+					class="filter-hover uppercase text-sm py-1 px-2 rounded mr-4 inline-block
+						{{'bg-black text-white dark:bg-white dark:text-black' if entry.url in page.url
+						else 'text-gray-600 dark:text-gray-300'}}"
+				>
+					{{ entry.title }}
+				</a>
+			</li>
+		{% endfor %}
+	</ul>
+</nav>
