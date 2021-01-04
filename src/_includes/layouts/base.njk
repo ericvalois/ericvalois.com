@@ -25,7 +25,7 @@
 
     <script defer src="/assets/main.js"></script>
 
-	{% if mywebsite.environment == "production" %}
+	{% if meta.env == "production" %}
 		<!-- Cloudflare Web Analytics -->
 		<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "58bc3103b95344048fcd22991de1e682"}'></script>
 		<!-- End Cloudflare Web Analytics -->
