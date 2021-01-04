@@ -13,10 +13,12 @@
     "serve:local": "serve _site",
     "serve": "run-s build serve:local",
     "clean": "rimraf _site",
-    "format:js": "prettier '**/*.js' --write && eslint '**/*.js' --fix",
-    "format:json": "prettier '**/*.json' --write",
-    "format": "run-s format:*",
-    "lint": "eslint --ext .js ."
+    "serve:webpack": "webpack --mode development --watch",
+    "serve:eleventy": "ELEVENTY_ENV=development eleventy --serve",
+    "serve": "npm-run-all clean --parallel serve:*",
+    "build:webpack": "cross-env NODE_ENV=production webpack --mode production",
+    "build:eleventy": "cross-env NODE_ENV=production ELEVENTY_ENV=production eleventy",
+    "build": "run-s clean build:*"
   },
   "license": "ISC",
   "devDependencies": {
