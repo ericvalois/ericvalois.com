@@ -1,6 +1,8 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
+const ENV = process.env.NODE_ENV
 
 module.exports = {
   entry: {
@@ -19,5 +21,11 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
       }
     ]
-  }
+  },
+  optimization: {
+    minimize: ENV === 'development' ? false : true,
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
+  },
 };
