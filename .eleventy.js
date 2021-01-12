@@ -46,8 +46,9 @@ module.exports = function(eleventyConfig) {
 	  });
 	  
   eleventyConfig.addPlugin(eleventyNavigationPlugin);
-
+  eleventyConfig.addPassthroughCopy('src/CNAME');
   eleventyConfig.addPassthroughCopy('src/images');
+  eleventyConfig.addPassthroughCopy('src/fonts');
   eleventyConfig.addPassthroughCopy('admin');
 
    

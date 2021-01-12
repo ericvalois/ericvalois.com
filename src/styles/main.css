@@ -21,7 +21,7 @@ body{
 .link,
 p a,
 .dark\:prose-dark p a{
-	@apply filter-hover transition-all font-semibold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400;
+	@apply filter-hover transition-all  bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600 dark:from-purple-400 dark:to-indigo-400;
 }
 
 .default-bg{

@@ -6,6 +6,9 @@ module.exports = {
 			...theme('colors'),
 			// 'black': '#ddd',
 		}),
+		fontFamily: {
+			'sans': ['"Inter"', 'ui-sans-serif', 'system-ui'],
+		},
 		extend: {
 		  colors: {
 			black: '#050505',
