@@ -4,9 +4,9 @@
 		<li class="">
 			<a 
 				href="/" 
-				class="filter-hover uppercase text-sm py-1 px-2 rounded mr-4 inline-block
-					{{'bg-black text-white dark:bg-white dark:text-black' if '/' == page.url
-					else 'text-gray-600 dark:text-gray-300'}}"
+				class=" text-xs py-2 uppercase  mr-5 inline-block 
+					{{'text-gray-900 dark:text-gray-200 border-b-2 border-gray-200' if '/' == page.url
+					else 'link'}}"
 			>
 				Home
 			</a>
@@ -15,9 +15,9 @@
 			<li class="">
 				<a 
 					href="{{ entry.url }}" 
-					class="filter-hover uppercase text-sm py-1 px-2 rounded mr-4 inline-block
-						{{'bg-black text-white dark:bg-white dark:text-black' if entry.url in page.url
-						else 'text-gray-600 dark:text-gray-300'}}"
+					class=" text-xs uppercase py-2 mr-5 inline-block {{class.link}}
+						{{'text-gray-900 dark:text-gray-200 border-b-2 border-gray-200' if entry.url in page.url
+						else ''}}"
 				>
 					{{ entry.title }}
 				</a>
