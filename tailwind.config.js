@@ -1,5 +1,11 @@
 module.exports = {
-	purge: ['./src/**/*.njk'],
+	purge: {
+		mode: 'all', // purge not just tailwind's styles, but all styles
+		content: [
+		  './src/**/*.njk',
+		  './src/_data/class.json',
+		],
+	},
 	darkMode: 'media',
 	theme: {
 		backgroundColor: theme => ({
