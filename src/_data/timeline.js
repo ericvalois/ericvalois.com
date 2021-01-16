@@ -1,13 +1,45 @@
 module.exports = [
 	{
-		title: 'Introducing Merlin',
+		title: 'This is Merlin, our new family member',
 		type: 'picture',
 		date: new Date("2021-01-03"),
-		pictures: [
+		pictures: [ // 580, 285
 			{
 				src: './src/images/merlin/PXL_20210102_204650230.PORTRAIT.jpg',
 				alt: 'Merlin le chat',
-				width: 580,
+				width: 285,
+			},
+			{
+				src: './src/images/merlin/kate-lili-merlin-sofa.jpg',
+				alt: 'Merlin Kate et Lili',
+				width: 285,
+			}
+		],
+	},
+	{
+		title: 'Hiking at Mont Orford with family',
+		type: 'picture',
+		date: new Date("2020-09-06"),
+		pictures: [ // 580, 285
+			{
+				src: './src/images/orford/IMG_20200908_173409_672.jpg',
+				alt: 'Hiking with family',
+				width: 285,
+			},
+			{
+				src: './src/images/orford/IMG_20200906_105922.jpg',
+				alt: 'Hiking with family',
+				width: 285,
+			},
+			{
+				src: './src/images/orford/IMG_20200906_110129.jpg',
+				alt: 'Hiking with family',
+				width: 285,
+			},
+			{
+				src: './src/images/orford/00100lrPORTRAIT_00100_BURST20200906112205538.jpg',
+				alt: 'Hiking with family',
+				width: 285,
 			}
 		],
 	},
