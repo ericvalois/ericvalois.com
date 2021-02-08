@@ -16,14 +16,25 @@ document.addEventListener('DOMContentLoaded', function () {
 	zooming.listen('.img-zoomable')
   })
 
-// import { zoom } from "@nishanths/zoom.js";
-
-// const zoomImages = document.querySelectorAll('[data-action="zoom"]');
-// zoomImages.forEach(img => {
-// 	zoom.setup(img);
-// });
-
-
 
 console.log("Works!");
 
+/*
+* Detect Avif image support and change images extension
+*/
+async function supportsAvif() {
+	if (!self.createImageBitmap) return false;
+		const avifData = 'data:image/avif;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
+		const blob = await fetch(avifData).then(r => r.blob());
+		return createImageBitmap(blob).then(() => true, () => false);
+}
+
+(async () => {
+	if(await supportsAvif()) {
+		console.log('support avif');
+		const images = document.querySelectorAll('.img-zoomable-link');
+		images.forEach(img => {
+			img.href = img.href.replace('.jpg', '.avif');
+		});
+	}
+})();
