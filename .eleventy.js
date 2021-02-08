@@ -29,7 +29,7 @@ module.exports = function(eleventyConfig) {
 
 		let metadata = await Image(src, {
 		  widths: [width, retinaWidth, null],
-		  formats: ['jpg', 'avif'],
+		  formats: ['jpg'],
 		  outputDir: "./_site/images/",
 		  urlPath: "/images/"
 		});
@@ -39,8 +39,8 @@ module.exports = function(eleventyConfig) {
 		let fullJPG = metadata.jpg[2];
 
 		return `
-			<a href="${fullJPG.url}" class="flex-auto img-zoomable-link">
-				<img src="${smallJPG.url}" decoding="async" srcset="${smallJPG.url} 1x, ${retinaJPG.url} 2x" class="img-zoomable rounded"  alt="${alt}" width="${smallJPG.width}" height="${smallJPG.height}">
+			<a href="${fullJPG.url}" class="flex-auto">
+				<img src="${smallJPG.url}" srcset="${smallJPG.url} 1x, ${retinaJPG.url} 2x" class="img-zoomable rounded"  alt="${alt}" width="${smallJPG.width}" height="${smallJPG.height}">
 			</a>
 		`;
 	  });
