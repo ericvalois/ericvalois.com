@@ -33,6 +33,7 @@
 		"webpack-cli": "^3.3.12"
 	},
 	"dependencies": {
+		"medium-zoom": "^1.0.6",
 		"postcss": "^8.1.7",
 		"zooming": "^2.1.1"
 	}
