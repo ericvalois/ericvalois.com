@@ -29,7 +29,7 @@ module.exports = function(eleventyConfig) {
 
 		let metadata = await Image(src, {
 		  widths: [width, retinaWidth, null],
-		  formats: ['jpg'],
+		  formats: ['jpg','avif'],
 		  outputDir: "./_site/images/",
 		  urlPath: "/images/"
 		});
@@ -38,10 +38,12 @@ module.exports = function(eleventyConfig) {
 		let retinaJPG = metadata.jpg[1];
 		let fullJPG = metadata.jpg[2];
 
+		let smallAVIF = metadata.avif[0];
+		let retinaAVIF = metadata.avif[1];
+		let fullAVIF = metadata.avif[2];
+
 		return `
-			<a href="${fullJPG.url}" class="flex-auto">
-				<img src="${smallJPG.url}" srcset="${smallJPG.url} 1x, ${retinaJPG.url} 2x" class="img-zoomable rounded"  alt="${alt}" width="${smallJPG.width}" height="${smallJPG.height}">
-			</a>
+			<img src="${smallAVIF.url}" data-zoom-src="${fullAVIF.url}" srcset="${smallAVIF.url} 1x, ${retinaAVIF.url} 2x" class="img-zoomable rounded"  alt="${alt}" width="${smallAVIF.width}" height="${smallAVIF.height}">
 		`;
 	  });
 	  
@@ -50,7 +52,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/icons');
   eleventyConfig.addPassthroughCopy('src/images');
   eleventyConfig.addPassthroughCopy('src/fonts');
-  eleventyConfig.addPassthroughCopy('admin');
+  eleventyConfig.addPassthroughCopy('src/videos');
 
    
 

@@ -1,5 +1,11 @@
 module.exports = [
 	{
+		title: 'Add website compatibility for Avif image format',
+		type: 'update',
+		date: new Date("2021-02-14"),
+		description: `I was playing with the new Avif image format and I must say that I'm impressed. So, I took the time to use it on my site and of course, add a JPG fallback for old browsers.`,
+	},
+	{
 		title: 'This is Merlin, our new family member',
 		type: 'picture',
 		date: new Date("2021-01-03"),

@@ -24,6 +24,8 @@ eleventyNavigation:
 				{% include "../_includes/components/timeline-picture.njk" %}
 			{% elif item.type == 'post' %}
 				{% include "../_includes/components/timeline-post.njk" %}
+			{% elif item.type == 'update' %}
+				{% include "../_includes/components/timeline-update.njk" %}
 			{% endif %}
 		</li>
 	{% endeach %}
