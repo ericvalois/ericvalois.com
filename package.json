@@ -34,7 +34,6 @@
 	},
 	"dependencies": {
 		"medium-zoom": "^1.0.6",
-		"postcss": "^8.1.7",
-		"zooming": "^2.1.1"
+		"postcss": "^8.1.7"
 	}
 }
