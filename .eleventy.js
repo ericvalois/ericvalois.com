@@ -31,7 +31,8 @@ module.exports = function(eleventyConfig) {
 		  widths: [width, retinaWidth, null],
 		  formats: ['jpg','avif'],
 		  outputDir: "./_site/images/",
-		  urlPath: "/images/"
+		  urlPath: "/images/",
+		  useCache: true
 		});
 		//console.log(metadata);
 		let smallJPG = metadata.jpg[0];
