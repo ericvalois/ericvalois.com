@@ -27,23 +27,30 @@ mediumZoom('.img-zoomable', {
 
 /*
 * Detect Avif image support and change images extension
+* https://github.com/leechy/imgsupport
 */
-async function supportsAvif() {
-	if (!self.createImageBitmap) return false;
-		const avifData = 'data:image/avif;base64,UklGRh4AAABXRUJQVlA4TBEAAAAvAAAAAAfQ//73v/+BiOh/AAA=';
-		const blob = await fetch(avifData).then(r => r.blob());
-		return createImageBitmap(blob).then(() => true, () => false);
-}
+(function(document) {
 
-(async () => {
-	if(await !supportsAvif()) {
-		console.log('support avif');
-		const images = document.querySelectorAll('.img-zoomable');
-		images.forEach(img => {
-			let dataZoomSrc = img.getAttribute('srcset').replace('.avif', '.jpg');
-			let dataZoomSrcHd = img.getAttribute('data-zoom-src').replace('.avif', '.jpg');
-			img.setAttribute('srcset', dataZoomSrc);
-			img.setAttribute('data-zoom-src', dataZoomSrcHd);
-		});
+	function imagesFallback(height) {
+		if(height === 0){
+			console.log("avif fallback");
+			const images = document.querySelectorAll('.img-zoomable');
+			images.forEach(img => {
+				let dataZoomSrc = img.getAttribute('src').replaceAll('.avif', '.jpg');
+				let dataZoomSrcset = img.getAttribute('srcset').replaceAll('.avif', '.jpg');
+				let dataZoomSrcHd = img.getAttribute('data-zoom-src').replaceAll('.avif', '.jpg');
+				img.setAttribute('src', dataZoomSrc);
+				img.setAttribute('srcset', dataZoomSrcset);
+				img.setAttribute('data-zoom-src', dataZoomSrcHd);
+			});
+		}
+		
 	}
-})();
+
+	var AVIF = new Image();
+	AVIF.onload = AVIF.onerror = function () {
+		imagesFallback(AVIF.height);
+	}
+	AVIF.src = 'data:image/avif;base64,AAAAIGZ0eXBhdmlmAAAAAGF2aWZtaWYxbWlhZk1BMUIAAADybWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAcGljdAAAAAAAAAAAAAAAAGxpYmF2aWYAAAAADnBpdG0AAAAAAAEAAAAeaWxvYwAAAABEAAABAAEAAAABAAABGgAAAB0AAAAoaWluZgAAAAAAAQAAABppbmZlAgAAAAABAABhdjAxQ29sb3IAAAAAamlwcnAAAABLaXBjbwAAABRpc3BlAAAAAAAAAAIAAAACAAAAEHBpeGkAAAAAAwgICAAAAAxhdjFDgQ0MAAAAABNjb2xybmNseAACAAIAAYAAAAAXaXBtYQAAAAAAAAABAAEEAQKDBAAAACVtZGF0EgAKCBgANogQEAwgMg8f8D///8WfhwB8+ErK42A=';
+
+})(window.sandboxApi && window.sandboxApi.parentWindow && window.sandboxApi.parentWindow.document || document);
