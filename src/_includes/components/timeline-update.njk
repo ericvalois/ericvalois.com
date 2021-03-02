@@ -7,7 +7,7 @@
 		<div class="flex-1 w-px -mb-12 md:-mb-12 bg-gray-800"></div>
 	</div>
 	<div class="flex flex-col flex-1 ml-4 space-y-4">
-		<div class="flex flex-col pt-1 contents-center"><span class="font-medium text-primary">{{item.title}}</span><span class="text-sm text-tertiary">November 9, 2020</span></div>
+		<div class="flex flex-col pt-1 contents-center"><span class="font-medium text-primary">{{item.title}}</span><span class="text-sm text-tertiary"><time datetime="{{ item.date | htmlDateString }}">{{ item.date | readableDate }}</time></span></div>
 		<div class="flex flex-col space-y-4 timeline-full-width">
 			<div class="px-4 py-3 rounded-md shadow bg-gray-900">
 				<p class="text-sm">
