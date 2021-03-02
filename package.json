@@ -33,6 +33,7 @@
 		"webpack-cli": "^3.3.12"
 	},
 	"dependencies": {
+		"eleventy-critical-css": "^0.2.2",
 		"medium-zoom": "^1.0.6",
 		"postcss": "^8.1.7"
 	}
