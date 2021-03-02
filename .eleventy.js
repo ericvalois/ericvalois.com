@@ -1,9 +1,11 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
-
+const criticalCss = require("eleventy-critical-css");
 
 module.exports = function(eleventyConfig) {
 
+	eleventyConfig.addPlugin(criticalCss);
+	
 	eleventyConfig.addFilter("latestTimeline", function(posts) {
 		let filledArray = new Array();
 
