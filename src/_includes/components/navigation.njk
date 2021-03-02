@@ -5,7 +5,7 @@
 			<a 
 				href="/" 
 				class=" text-xs py-2 uppercase  mr-5 inline-block 
-					{{'text-gray-900 dark:text-gray-200 border-b-2 border-gray-200' if '/' == page.url
+					{{'text-gray-200 border-b-2 border-gray-200' if '/' == page.url
 					else 'link'}}"
 			>
 				Home
@@ -16,7 +16,7 @@
 				<a 
 					href="{{ entry.url }}" 
 					class=" text-xs uppercase py-2 mr-5 inline-block {{class.link}}
-						{{'text-gray-900 dark:text-gray-200 border-b-2 border-gray-200' if entry.url in page.url
+						{{'text-gray-200 border-b-2 border-gray-200' if entry.url in page.url
 						else ''}}"
 				>
 					{{ entry.title }}

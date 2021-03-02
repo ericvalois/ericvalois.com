@@ -6,7 +6,7 @@ module.exports = {
 		  './src/_data/class.json',
 		],
 	},
-	darkMode: 'media',
+	//darkMode: 'media',
 	theme: {
 		backgroundColor: theme => ({
 			...theme('colors'),
@@ -21,27 +21,27 @@ module.exports = {
 		  },
 	
 		  typography: (theme) => ({
-			DEFAULT: {
-			  css: {
-				color: theme("colors.gray.900"),
-				a: {
-				  color: theme("colors.blue.700"),
-				  "&:hover": {
-					color: theme("colors.blue.700"),
-					textDecoration: "none",
-				  },
-				},
-				"h2 a": {
-				  color: theme("colors.gray.900"),
-				  textDecoration: "none",
-				},
-				".tag a": {
-				  textDecoration: "none",
-				},
-			  },
-			},
+			// DEFAULT: {
+			//   css: {
+			// 	color: theme("colors.gray.900"),
+			// 	a: {
+			// 	  color: theme("colors.blue.700"),
+			// 	  "&:hover": {
+			// 		color: theme("colors.blue.700"),
+			// 		textDecoration: "none",
+			// 	  },
+			// 	},
+			// 	"h2 a": {
+			// 	  color: theme("colors.gray.900"),
+			// 	  textDecoration: "none",
+			// 	},
+			// 	".tag a": {
+			// 	  textDecoration: "none",
+			// 	},
+			//   },
+			// },
 	
-			dark: {
+			DEFAULT: {
 			  css: {
 				color: "#fff",
 				a: {
@@ -108,7 +108,7 @@ module.exports = {
 	  require('@tailwindcss/typography'),
 	],
 	variants: {
-		typography: ["responsive", "dark"]
+		typography: ["responsive"]
 	},
 };
   
