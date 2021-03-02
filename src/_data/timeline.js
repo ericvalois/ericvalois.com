@@ -1,5 +1,23 @@
 module.exports = [
 	{
+		title: 'Host ericvalois.com on Cloudflare Pages',
+		type: 'update',
+		date: new Date("2021-03-02"),
+		description: `Just moved to Cloudflare Pages to host ericvalois.com and I love it. Everything worked at the first try 😮`,
+	},
+	{
+		title: 'I must admit that she found a tall ice stick.',
+		type: 'picture',
+		date: new Date("2021-03-01"),
+		pictures: [ // 580, 285
+			{
+				src: './src/images/family/kate-and-ice-stick.jpg',
+				alt: 'Kate playing with ice stick',
+				width: 580,
+			},
+		],
+	},
+	{
 		title: 'Add website compatibility for Avif image format',
 		type: 'update',
 		date: new Date("2021-02-14"),
