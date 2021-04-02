@@ -41,9 +41,6 @@ module.exports = function(eleventyConfig) {
 		  useCache: true
 		});
 		//console.log(metadata);
-		let smallJPG = metadata.jpg[0];
-		let retinaJPG = metadata.jpg[1];
-		let fullJPG = metadata.jpg[2];
 
 		let smallAVIF = metadata.avif[0];
 		let retinaAVIF = metadata.avif[1];
