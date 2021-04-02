@@ -29,6 +29,8 @@ p a,
 	background-position: right center;
 }
 
+.grayscale{filter: grayscale(80%);}
+
 @keyframes gradient {
 	0% {
 		background-position: 0% 50%;

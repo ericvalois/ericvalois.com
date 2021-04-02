@@ -5,6 +5,9 @@ module.exports = {
 		  './src/**/*.njk',
 		  './src/_data/class.json',
 		],
+		options: {
+			keyframes: true,
+		},
 	},
 	//darkMode: 'media',
 	theme: {
@@ -14,6 +17,10 @@ module.exports = {
 		}),
 		fontFamily: {
 			'sans': ['"Inter"', 'ui-sans-serif', 'system-ui'],
+		},
+		screens: {
+			'md': '768px',
+			'lg': '1024px',
 		},
 		extend: {
 		  colors: {
