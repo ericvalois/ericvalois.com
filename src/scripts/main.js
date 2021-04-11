@@ -36,9 +36,9 @@ mediumZoom('.img-zoomable', {
 			console.log("avif fallback");
 			const images = document.querySelectorAll('.img-zoomable');
 			images.forEach(img => {
-				let dataZoomSrc = img.getAttribute('src').replaceAll('.avif', '.jpg');
-				let dataZoomSrcset = img.getAttribute('srcset').replaceAll('.avif', '.jpg');
-				let dataZoomSrcHd = img.getAttribute('data-zoom-src').replaceAll('.avif', '.jpg');
+				let dataZoomSrc = img.getAttribute('src').replaceAll('.avif', '.jpeg');
+				let dataZoomSrcset = img.getAttribute('srcset').replaceAll('.avif', '.jpeg');
+				let dataZoomSrcHd = img.getAttribute('data-zoom-src').replaceAll('.avif', '.jpeg');
 				img.setAttribute('src', dataZoomSrc);
 				img.setAttribute('srcset', dataZoomSrcset);
 				img.setAttribute('data-zoom-src', dataZoomSrcHd);
