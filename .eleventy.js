@@ -1,6 +1,7 @@
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 const Image = require("@11ty/eleventy-img");
 const criticalCss = require("eleventy-critical-css");
+const syntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 
 module.exports = function(eleventyConfig) {
 
@@ -9,6 +10,8 @@ module.exports = function(eleventyConfig) {
 		height: 1080,
 		width: 1920,
 	});
+
+	eleventyConfig.addPlugin(syntaxHighlight);
 
 	eleventyConfig.addFilter("latestTimeline", function(posts) {
 		let filledArray = new Array();
@@ -56,7 +59,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/icons');
   eleventyConfig.addPassthroughCopy('src/images');
   eleventyConfig.addPassthroughCopy('src/fonts');
-  eleventyConfig.addPassthroughCopy('src/videos');
+  eleventyConfig.addPassthroughCopy('src/css');
 
    
 

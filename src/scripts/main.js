@@ -1,4 +1,4 @@
-import '../styles/main.css';
+import '../css/main.css';
 
 import '../scripts/_icon.js';
 
