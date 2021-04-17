@@ -50,5 +50,27 @@ p a,
     max-width: 100vw;
 }
 
+pre[class*="language-"]:before{
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1;
+	display: block;
+	padding: 0.2rem 1rem;
+	width: 100%;
+	color: #fff;
+	@apply bg-gradient-to-r from-purple-400 to-indigo-400;
+}
+
+pre.language-js:before{content: "JS"; }
+pre.language-css:before{content: "CSS"; }
+pre.language-php:before{content: "PHP"; }
+pre.language-html:before{content: "HTML"; }
+
+pre code{ 
+	padding: 1rem;
+	overflow: auto;
+}
+
+
 @tailwind components;
 @tailwind utilities;
