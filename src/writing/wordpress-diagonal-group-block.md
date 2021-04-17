@@ -1,40 +1,46 @@
 ---
-title: This Is My First Ever Post
+title: Styling the WordPress core/group block with diagonals
 date: 2019-05-30
 tags: ['post']
 layout: layouts/post.njk
 code_snippet: true
 ---
 
-``` js
-function myFunction() {
-	return true;
-}
-```
-``` css
-.alignfull {
-    margin-left: calc(-100vw / 2 + 100% / 2);
-    margin-right: calc(-100vw / 2 + 100% / 2);
-    max-width: 100vw;
-}
-```
-``` php
-add_action( 'enqueue_block_editor_assets', 'sg_storyblock_init' );
-function sg_storyblock_init(){
-	( sharegate_is_dev() ) ? $extension = "" : $extension = ".min";
+<img src="/images/blog/wordpress-group-block-diagonal.jpg" alt="Wordpress"/>
 
-	wp_enqueue_script(
-        'storyblock-editor-script',
-		EXTEND_SHAREGATE_URI . 'dist/js/storyblock/storyblock'.$extension.'.js',  
-		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ),
-		filemtime( EXTEND_SHAREGATE_DIR . 'dist/js/storyblock/storyblock'.$extension.'.js' ),
-		true
-	);
-}
+``` css
+.is-style-diagonal-both{ clip-path: polygon(0% 0%, 0% calc(100% - 5vw), 100% 100%, 100% calc(0% + 5vw)); }
 ```
-``` html
-<div class="flex-auto flex items-center justify-between">
-</div>
+
+``` php
+register_block_style(
+    'core/group',
+    array(
+        'name'         => 'diagonal-both',
+        'label'        => __( 'Diagonal Both', 'sharegate' ),
+    )
+);
+```
+
+
+``` php
+/*
+* Add wrapper to group block with diagonal variations
+*/
+add_filter( 'render_block_core/group', 'sg_group_diagonal_wrapper', 10, 2 );
+function sg_group_diagonal_wrapper( $block_content, $block ) {
+	if ( is_admin() ){
+		return $block_content;
+	}
+
+	if( strpos($block_content, "is-style-diagonal-") === false ){
+		return $block_content;
+	}
+	
+	$block_content = '<div class="drop-shadow-lg">' . $block_content . '</div>';
+
+	return $block_content;
+}
 ```
 yo
  
