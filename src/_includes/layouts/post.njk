@@ -1,8 +1,12 @@
 ---
 layout: layouts/base.njk
 ---
-<article class="prose-dark py-10 lg:py-16 max-w-xl mx-auto">
-	<h1 class="mb-0">{{title}}</h1>
-	<header class="text-sm my-4 text-gray-400 ">{{ date | readableDate }}</header>
+<article class="py-10 lg:py-16 max-w-xl mx-auto">
+	<div class="max-w-xl mx-auto mb-10">
+  		<h1 class="mb-0 text-3xl font-semibold">{{title}}</h1>
+		<header class="text-sm my-4 text-gray-400 ">{{ date | readableDate }}</header>
+	</div>
+
 	{{ content | safe }}
+		
 </article>
