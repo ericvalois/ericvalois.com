@@ -24,6 +24,8 @@ layout: layouts/base.njk
 				{% include "./_includes/components/timeline-post.njk" %}
 			{% elif item.type == 'update' %}
 				{% include "./_includes/components/timeline-update.njk" %}
+			{% elif item.type == 'code' %}
+				{% include "./_includes/components/timeline-code.njk" %}
 			{% endif %}
 		</li>
 	{% endeach %}

@@ -1,5 +1,11 @@
 module.exports = [
 	{
+		title: 'test',
+		type: 'code',
+		date: new Date("2021-03-02"),
+		description: `Just moved to Cloudflare Pages to host ericvalois.com and I love it. Everything worked at the first try 😮`,
+	},
+	{
 		title: 'Host ericvalois.com on Cloudflare Pages',
 		type: 'update',
 		date: new Date("2021-03-02"),
