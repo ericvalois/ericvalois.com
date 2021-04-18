@@ -16,7 +16,7 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addFilter("latestTimeline", function(posts) {
 		let filledArray = new Array();
 
-		for(let i=0; i<4;i++){
+		for(let i=0; i<6;i++){
 			filledArray[i] = posts[i];
 		}
 		return filledArray;
