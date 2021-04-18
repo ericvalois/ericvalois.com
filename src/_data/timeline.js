@@ -1,9 +1,9 @@
 module.exports = [
 	{
-		title: 'test',
-		type: 'code',
-		date: new Date("2021-03-02"),
-		description: `Just moved to Cloudflare Pages to host ericvalois.com and I love it. Everything worked at the first try 😮`,
+		title: 'Added support for syntax highlighting',
+		type: 'update',
+		date: new Date("2021-04-18"),
+		description: `I'm adding what I need to be able to write technical articles. Syntax highlighting is an essential piece of that. Next, I'll add a comment system and finish the article template styles. `,
 	},
 	{
 		title: 'Host ericvalois.com on Cloudflare Pages',
