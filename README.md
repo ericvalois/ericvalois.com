@@ -1,4 +1,4 @@
-# My personnal website repo
+# My personnal website
 ---
 
 ## Getting Started
